@@ -1,0 +1,10 @@
+{% extends "AppNotas/base.html" %}
+{% block content %}
+<form method="POST">
+    
+    {% csrf_token %}
+    {{form}}
+    <button>Eliminar nota</button>
+
+</form>
+{% endblock %}
