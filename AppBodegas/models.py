@@ -48,6 +48,8 @@ class Usuario(models.Model):
 
 class Bodega(models.Model):
     id = models.BigAutoField(primary_key=True)
+    nombre = models.CharField(max_length=50)
+    direccion = models.CharField(max_length=100)
 
 class BodegaInventario(models.Model):
     bodega_id = models.ForeignKey(Bodega, to_field='id', on_delete=models.PROTECT)

@@ -1,5 +1,5 @@
 from django import forms
-from .models import Autor, Producto
+from .models import Autor, Producto, Editorial
 
 
 
@@ -13,6 +13,11 @@ class crear_producto(forms.ModelForm):
 class crear_autor(forms.ModelForm):
     class Meta:
         model = Autor
+        fields = ["nombre"]
+
+class crear_editorial(forms.ModelForm):
+    class Meta:
+        model = Editorial
         fields = ["nombre"]
 
 
