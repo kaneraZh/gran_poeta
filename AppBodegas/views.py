@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView, CreateView
-from .models import Autor, Producto
+from .models import Producto, Bodega, Autor
 from .forms import crear_producto, crear_autor
 from django.shortcuts import redirect
 
@@ -8,6 +8,7 @@ from django.shortcuts import redirect
 
 def home(request):
     productos=Producto.objects.all()
+    #productos=Producto.objects.select_related('ProductoAutor', 'ProductoEditorial')
     context={
         "productos":productos
     }

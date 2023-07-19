@@ -29,7 +29,7 @@ class Producto(models.Model):
     nombre = models.CharField(max_length=45)
     descripcion = models.CharField(max_length=45)
     def __str__(self) -> str:
-        return f'{self.nombre}, {self.descripcion}, {self.descripcion}'
+        return f'{self.nombre}, {self.descripcion}, {self.producto_tipo_id}'
 
 class ProductoAutor(models.Model):
     producto_id = models.ForeignKey(Producto, to_field='id', on_delete=models.PROTECT)
