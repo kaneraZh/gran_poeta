@@ -1,45 +1,45 @@
 from django.shortcuts import render
 from django.views.generic import ListView, CreateView
-from .models import Nota
-from .forms import NotaForm
+from .models import Nota, Producto
+from .forms import crear_producto, crear_producto
 from django.shortcuts import redirect
 
 # Create your views here.
 
 def home(request):
-    notas=Nota.objects.all()
+    productos=Producto.objects.all()
     context={
-        "notas":notas
+        "productos":productos
     }
     return render(request, "AppNotas/home.html", context)
 
 def agregar(request):
     if request.method == "POST":
-        form = NotaForm(request.POST)
+        form = crear_producto(request.POST)
         if form.is_valid:
             form.save()
             return redirect("home")
     else:
-        form = NotaForm()
+        form = crear_producto()
     context = {
         "form":form
     }
     return render(request, "AppNotas/agregar.html", context)
     
-def editar(request, nota_id):
-    nota = Nota.objects.get(id=nota_id)
+def editar(request, producto_id):
+    producto = Producto.objects.get(id=producto_id)
     if request.method == "POST":
-        form = NotaForm(request.POST, instance=nota)
+        form = crear_producto(request.POST, instance=producto)
         if form.is_valid():
             form.save()
             return redirect("home")
     else:
-        form = NotaForm(instance=nota)    
+        form = crear_producto(instance=producto)    
     context={"form":form}
     return render(request, "AppNotas/agregar.html", context)
 
-def eliminar(request, nota_id):
-    nota = Nota.objects.get(id=nota_id)
-    nota.delete()
+def eliminar(request, producto_id):
+    producto = Producto.objects.get(id=producto_id)
+    producto.delete()
     return redirect("home")
 

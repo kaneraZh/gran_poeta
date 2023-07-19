@@ -5,18 +5,18 @@
     <thead class="thead-dark">
         <tr>
             <th scope="col">#</th>
-            <th scope="col">Nota</th>
+            <th scope="col">Producto</th>
             <th scope="col">Accion</th>
         </tr>
     </thead>
     <tbody>
-        {% for nota in notas %}
+        {% for producto in productos %}
         <tr>
-            <th scope="row">{{nota.id}}</th>
-            <td>{{nota}}</td>
+            <th scope="row">{{producto.id}}</th>
+            <td>{{producto}}</td>
             <td>
-                <a class="btn btn-primary btm-sm" href="{% url 'AppNota-editar' nota.id %}">Editar</a>
-                <a class="btn btn-danger btm-sm" href="{% url 'AppNota-eliminar' nota.id %}">Eliminar</a>
+                <a class="btn btn-primary btm-sm" href="{% url 'AppNota-editar' producto.id %}">Editar</a>
+                <a class="btn btn-danger btm-sm" href="{% url 'AppNota-eliminar' producto.id %}">Eliminar</a>
             </td>
         </tr>
         {% endfor %}

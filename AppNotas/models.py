@@ -8,19 +8,28 @@ class Nota(models.Model):
 class Autor(models.Model):
     id = models.BigAutoField(primary_key=True)
     nombre = models.CharField(max_length=45)
+    def __str__(self) -> str:
+        return self.nombre
 
 class Editorial(models.Model):
     id = models.BigAutoField(primary_key=True)
+    nombre = models.CharField(max_length=45)
+    def __str__(self) -> str:
+        return self.nombre
 
 class ProductoTipo(models.Model):
     id = models.BigAutoField(primary_key='id')
     nombre = models.CharField(max_length=45)
+    def __str__(self) -> str:
+        return self.nombre
 
 class Producto(models.Model):
     id = models.BigAutoField(primary_key='id')
     producto_tipo_id = models.ForeignKey(ProductoTipo, to_field='id', on_delete=models.PROTECT)
     nombre = models.CharField(max_length=45)
     descripcion = models.CharField(max_length=45)
+    def __str__(self) -> str:
+        return f'{self.nombre}, {self.descripcion}, {self.descripcion}'
 
 class ProductoAutor(models.Model):
     producto_id = models.ForeignKey(Producto, to_field='id', on_delete=models.PROTECT)

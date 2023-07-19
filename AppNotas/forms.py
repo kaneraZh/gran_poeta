@@ -6,6 +6,9 @@ class NotaForm(forms.ModelForm):
         model = Nota
         fields = ["nota"]
 
-class CrearNuevoLibro(forms.Form):
-    title = forms.CharField(label="Titulo del libro", max_length=200)
-    description = forms.CharField(label="Descriccion del libro", widget=forms.Textarea)
+class crear_producto(forms.ModelForm):
+    class Meta:
+        model = Producto
+        fields = ["producto_tipo_id",
+                  "nombre",
+                  "descripcion"]
