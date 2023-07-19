@@ -1,5 +1,5 @@
 """
-WSGI config for ProyectoNotas project.
+WSGI config for ProyectoBodegas project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ProyectoNotas.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ProyectoBodegas.settings')
 
 application = get_wsgi_application()

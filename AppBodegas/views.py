@@ -11,7 +11,7 @@ def home(request):
     context={
         "productos":productos
     }
-    return render(request, "AppNotas/home.html", context)
+    return render(request, "AppBodegas/home.html", context)
 
 def agregar(request):
     if request.method == "POST":
@@ -24,7 +24,7 @@ def agregar(request):
     context = {
         "form":form
     }
-    return render(request, "AppNotas/agregar.html", context)
+    return render(request, "AppBodegas/agregar.html", context)
     
 def editar(request, producto_id):
     producto = Producto.objects.get(id=producto_id)
@@ -36,7 +36,7 @@ def editar(request, producto_id):
     else:
         form = crear_producto(instance=producto)    
     context={"form":form}
-    return render(request, "AppNotas/agregar.html", context)
+    return render(request, "AppBodegas/agregar.html", context)
 
 def eliminar(request, producto_id):
     producto = Producto.objects.get(id=producto_id)
