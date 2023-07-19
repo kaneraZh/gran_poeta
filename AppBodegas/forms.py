@@ -1,10 +1,7 @@
 from django import forms
-from .models import Nota, Producto
+from .models import Autor, Producto
 
-class NotaForm(forms.ModelForm):
-    class Meta:
-        model = Nota
-        fields = ["nota"]
+
 
 class crear_producto(forms.ModelForm):
     class Meta:
@@ -12,3 +9,11 @@ class crear_producto(forms.ModelForm):
         fields = ["producto_tipo_id",
                   "nombre",
                   "descripcion"]
+
+class crear_autor(forms.ModelForm):
+    class Meta:
+        model = Autor
+        fields = ["nombre"]
+
+
+                  

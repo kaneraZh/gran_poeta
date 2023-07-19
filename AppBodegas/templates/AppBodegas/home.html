@@ -15,8 +15,8 @@
             <th scope="row">{{producto.id}}</th>
             <td>{{producto}}</td>
             <td>
-                <a class="btn btn-primary btm-sm" href="{% url 'AppBodega-editar' producto.id %}">Editar</a>
-                <a class="btn btn-danger btm-sm" href="{% url 'AppBodega-eliminar' producto.id %}">Eliminar</a>
+                <a class="btn btn-primary btm-sm" href="{% url 'AppBodegas-editar' producto.id %}">Editar</a>
+                <a class="btn btn-danger btm-sm" href="{% url 'AppBodegas-eliminar' producto.id %}">Eliminar</a>
             </td>
         </tr>
         {% endfor %}
