@@ -1,0 +1,26 @@
+{% extends "AppBodegas/base.html" %}
+{% block content %}
+<div class="container">
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Editorial</th>
+            <th scope="col">Accion</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for editorial in editoriales %}
+        <tr>
+            <th scope="row">{{editorial.id}}</th>
+            <td>{{editorial}}</td>
+            <td>
+                <a class="btn btn-primary btm-sm" href="{% url 'AppBodegas-editar-editorial' editorial.id %}">Editar</a>
+                <a class="btn btn-danger btm-sm" href="{% url 'AppBodegas-eliminar-editorial' editorial.id %}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+{% endblock %}

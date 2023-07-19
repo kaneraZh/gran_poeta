@@ -1,0 +1,26 @@
+{% extends "AppBodegas/base.html" %}
+{% block content %}
+<div class="container">
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Autor</th>
+            <th scope="col">Accion</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for autor in autores %}
+        <tr>
+            <th scope="row">{{autor.id}}</th>
+            <td>{{autor}}</td>
+            <td>
+                <a class="btn btn-primary btm-sm" href="{% url 'AppBodegas-editar-autor' autor.id %}">Editar</a>
+                <a class="btn btn-danger btm-sm" href="{% url 'AppBodegas-eliminar-autor' autor.id %}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+{% endblock %}
