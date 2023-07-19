@@ -6,7 +6,6 @@ class NotaForm(forms.ModelForm):
         model = Nota
         fields = ["nota"]
 
-
 class CrearNuevoLibro(forms.Form):
     title = forms.CharField(label="Titulo del libro", max_length=200)
     description = forms.CharField(label="Descriccion del libro", widget=forms.Textarea)
