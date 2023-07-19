@@ -89,12 +89,21 @@ def eliminarautor(request, autor_id):
 
     #------------------------------------------------------------------#
 
+def editoriales(request):
+    editoriales=Editorial.objects.all()
+    context={
+        "editoriales":editoriales
+    }
+    return render(request, "AppBodegas/Editoriales.html", context)
+
+
+
 def agregareditorial(request):
     if request.method == "POST":
         form = crear_editorial(request.POST)
         if form.is_valid:
             form.save()
-            return redirect("home")
+            return redirect("editoriales")
     else:
         form = crear_editorial()
     context = {
@@ -108,14 +117,14 @@ def editareditorial(request, editorial_id):
         form = crear_editorial(request.POST, instance=editorial)
         if form.is_valid():
             form.save()
-            return redirect("home")
+            return redirect("editoriales")
     else:
         form = crear_editorial(instance=editorial)    
     context={"form":form}
     return render(request, "AppBodegas/agregar-editorial.html", context)
 
-def elimineditorial(request, editorial_id):
+def eliminareditorial(request, editorial_id):
     editorial = Editorial.objects.get(id=editorial_id)
     editorial.delete()
-    return redirect("home")
+    return redirect("editoriales")
 
