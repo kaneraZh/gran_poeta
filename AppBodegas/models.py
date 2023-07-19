@@ -64,7 +64,7 @@ class BodegaInventario(models.Model):
     producto_id = models.ForeignKey(Producto, to_field='id', on_delete=models.PROTECT)
     cantidad = models.IntegerField(blank=False)
     def __str__(self) -> str:
-        return f'{self.bodega_id}, {self.producto_id}x{self.cantidad}'
+        return f'{self.producto_id}x{self.cantidad}'
 
 class Informe(models.Model):
     id = models.BigAutoField(primary_key=True)
