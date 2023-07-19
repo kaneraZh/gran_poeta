@@ -7,14 +7,14 @@ class crear_producto(forms.ModelForm):
         fields = ["producto_tipo_id",
                   "nombre",
                   "descripcion"]
-    
-    class Meta:
-        model = ProductoEditorial
-        fields = ["editorial_id"]
-    
-    class Meta:
-        model = ProductoAutor
-        fields = ["autor_id"]
+#    
+#    class Meta:
+#        model = ProductoEditorial
+#        fields = ["editorial_id"]
+#    
+#    class Meta:
+#        model = ProductoAutor
+#        fields = ["autor_id"]
 
 from .models import Autor
 class crear_autor(forms.ModelForm):
@@ -27,6 +27,3 @@ class crear_editorial(forms.ModelForm):
     class Meta:
         model = Editorial
         fields = ["nombre"]
-
-
-                  
