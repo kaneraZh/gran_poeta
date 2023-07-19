@@ -9,6 +9,7 @@ from django.shortcuts import redirect
 def home(request):
     productos=Producto.objects.all()
     #productos=Producto.objects.select_related('ProductoAutor', 'ProductoEditorial')
+    print(productos)
     context={
         "productos":productos
     }
